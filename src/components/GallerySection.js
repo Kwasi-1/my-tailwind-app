@@ -1,28 +1,32 @@
 import React from 'react';
 
-const images = [
-  'path/to/image1.jpg',
-  'path/to/image2.jpg',
-  'path/to/image3.jpg',
-  'path/to/image4.jpg',
-  'path/to/image5.jpg',
-  'path/to/image6.jpg',
+const Gallery = [
+  require('../assets/mechanic.png'),
+  require('../assets/happy-mechanic.png'),
+  require('../assets/engine.png'),
+  require('../assets/mechanic.png'),
+  require('../assets/mechanic.png'),
+  require('../assets/mechanic.png')
 ];
 
 const GallerySection = () => {
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-8">Gallery</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {images.map((image, index) => (
-            <div key={index} className="rounded overflow-hidden shadow-lg">
-              <img src={image} alt={`Gallery image ${index + 1}`} className="w-full h-48 object-cover" />
-            </div>
-          ))}
-        </div>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-4">Gallery</h1>
+      <p className="mb-8 text-gray-700">
+        Explore our latest automotive triumphs - showcasing precision in every service and genuine parts, ensuring your vehicle excels on every journey.
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {Gallery.map((image, index) => (
+          <div key={index} className="relative overflow-hidden">
+            <img src={image} alt={image.alt} className="w-full h-full object-cover"/>
+          </div>
+        ))}
       </div>
-    </section>
+      <div className="mt-8 text-right">
+        <a href="/gallery" className="text-red-600 hover:underline">View More</a>
+      </div>
+    </div>
   );
 };
 

@@ -6,6 +6,7 @@ import WhyChooseUsSection from '../components/WhyChooseUsSection';
 import ContactFormSection from '../components/ContactFormSection';
 // import GallerySection from '../components/GallerySection';
 import Footer from '../components/Footer';
+import Contact from '../components/Contact';
 
 const Home = () => {
   return ( 
@@ -16,6 +17,7 @@ const Home = () => {
       <WhyChooseUsSection />
       <ContactFormSection />
       {/* <GallerySection /> */}
+      <Contact/>
       <Footer />
     </div>
   );

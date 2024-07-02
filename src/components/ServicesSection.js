@@ -1,25 +1,27 @@
 import React from 'react';
 
 const services = [
-  { title: 'Engine Repair', icon: '🚗' },
-  { title: 'Oil Change', icon: '🛢️' },
-  { title: 'Tire Services', icon: '🔧' },
-  { title: 'AC Servicing', icon: '❄️' },
-  { title: 'Battery Replacement', icon: '🔋' },
-  { title: 'Brake Repair', icon: '🛠️' },
+  { title: 'Automobile resprays', icon: require('../assets/game-icons_car-key.png')},
+  { title: 'Auto Electrical', icon: require('../assets/game-icons_car-key.png') },
+  { title: 'Car Detailing', icon: require('../assets/game-icons_car-key.png')},
+  { title: 'Paint Correction', icon: require('../assets/game-icons_car-key.png')},
+  { title: 'Body Works', icon: require('../assets/game-icons_car-key.png') },
+  { title: 'Auto Mechanic', icon: require('../assets/game-icons_car-key.png') },
 ];
 
 const ServicesSection = () => {
   return (
     <section className="py-16 bg-gray-100">
-      <div className="container mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-8">We Are Specialists In Following Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold mb-8 text-center">We Are Specialists In Following Services</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:p-16">
           {services.map((service) => (
-            <div key={service.title} className="bg-white p-6 rounded shadow-lg">
-              <div className="text-4xl mb-4">{service.icon}</div>
-              <h3 className="text-2xl font-semibold mb-2">{service.title}</h3>
-              <p className="text-gray-600">High-quality service for your car.</p>
+            <div key={service.title} className="bg-white p-6 rounded-lg border-2 border-gray-300 shadow-lg">
+              <h3 className="text-2xl font-semibold mb-4 pt-10">{service.title}</h3>
+              <div className="flex items-center justify-between">
+                <p className="text-red-600">Book Now</p>
+                <img src={service.icon} alt="service icon" className="h-20 w-20" />
+              </div>
             </div>
           ))}
         </div>
