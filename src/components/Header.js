@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import LoginModal from './LoginModal';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+
+  const handleLoginOpen = () => setIsLoginOpen(true);
+  const handleLoginClose = () => setIsLoginOpen(false);
 
   return (
     <header className="bg-black text-white p-4">
@@ -41,19 +46,28 @@ const Header = () => {
           </button>
         </div>
         <ul className={`md:flex space-x-4 ${isOpen ? 'block' : 'hidden'} md:block`}>
-          <li><Link to="/" className="block md:inline hover:underline py-2 md:py-0 actie:text-red-800">Home</Link></li>
+          <li><Link to="/" className="block md:inline hover:underline py-2 md:py-0 active:text-red-800">Home</Link></li>
           <li><Link to="/services" className="block md:inline hover:underline py-2 md:py-0">Services</Link></li>
           <li><Link to="/booking" className="block md:inline hover:underline py-2 md:py-0">Booking</Link></li>
           <li><Link to="/gallery" className="block md:inline hover:underline py-2 md:py-0">Gallery</Link></li>
           <li><Link to="/contact" className="block md:inline hover:underline py-2 md:py-0">Contact</Link></li>
         </ul>
-        <button className="hidden md:block bg-red-600 px-6 py-3 text-lg font-semibold rounded">Book A Schedule</button>
+        <button 
+          className="hidden md:block bg-red-600 px-6 py-3 text-lg font-semibold rounded"
+          onClick={handleLoginOpen}
+        >
+          Book A Schedule
+        </button>
       </nav>
       {isOpen && (
-        <button className="block md:hidden bg-red-600 w-full px-6 py-3 mt-4 text-lg font-semibold rounded">
+        <button 
+          className="block md:hidden bg-red-600 w-full px-6 py-3 mt-4 text-lg font-semibold rounded"
+          onClick={handleLoginOpen}
+        >
           Book A Schedule
         </button>
       )}
+      <LoginModal isOpen={isLoginOpen} onClose={handleLoginClose} />
     </header>
   );
 };
