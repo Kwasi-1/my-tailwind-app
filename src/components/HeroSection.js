@@ -1,6 +1,5 @@
 import React from 'react';
 import backgroundImage from '../assets/Hero-bg-Image.png'; // Adjust the path as necessary
-import Header from './Header';
 
 const HeroSection = () => {
   return (

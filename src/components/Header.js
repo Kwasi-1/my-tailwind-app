@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -6,7 +7,9 @@ const Header = () => {
   return (
     <header className="bg-black text-white p-4">
       <nav className="container mx-auto flex justify-between items-center">
-        <div className="text-2xl font-bold">Auto Repair</div>
+        <div className="text-2xl font-bold">
+          <Link to='/'>Auto Repair</Link>
+        </div>
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -38,11 +41,11 @@ const Header = () => {
           </button>
         </div>
         <ul className={`md:flex space-x-4 ${isOpen ? 'block' : 'hidden'} md:block`}>
-          <li><a href="/" className="block md:inline hover:underline py-2 md:py-0">Home</a></li>
-          <li><a href="/services" className="block md:inline hover:underline py-2 md:py-0">Services</a></li>
-          <li><a href="/booking" className="block md:inline hover:underline py-2 md:py-0">Booking</a></li>
-          <li><a href="/gallery" className="block md:inline hover:underline py-2 md:py-0">Gallery</a></li>
-          <li><a href="/contact" className="block md:inline hover:underline py-2 md:py-0">Contact</a></li>
+          <li><Link to="/" className="block md:inline hover:underline py-2 md:py-0 actie:text-red-800">Home</Link></li>
+          <li><Link to="/services" className="block md:inline hover:underline py-2 md:py-0">Services</Link></li>
+          <li><Link to="/booking" className="block md:inline hover:underline py-2 md:py-0">Booking</Link></li>
+          <li><Link to="/gallery" className="block md:inline hover:underline py-2 md:py-0">Gallery</Link></li>
+          <li><Link to="/contact" className="block md:inline hover:underline py-2 md:py-0">Contact</Link></li>
         </ul>
         <button className="hidden md:block bg-red-600 px-6 py-3 text-lg font-semibold rounded">Book A Schedule</button>
       </nav>
