@@ -4,17 +4,18 @@ import { FcGoogle } from 'react-icons/fc';
 import { FaApple } from "react-icons/fa";
 import { MdOutlineVpnKey } from "react-icons/md";
 
-const LoginModal = ({ isOpen, onClose }) => {
+const LoginSignupModal = ({ isOpen, onClose }) => {
+  const [action, setAction] = useState('Sign In');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-      <div className="bg-white py-14 px-24 rounded-lg shadow-lg w-2/5">
-        <h2 className="text-2xl font-bold text-black mb-4 text-center">Sign In</h2>
-        <p className="text-center text-gray-500 mb-8">Please enter your detail</p>
+    <div className="fixed inset-0 bg-black z-20 bg-opacity-50 flex justify-center items-center p-4 sm:p-6 md:p-8">
+      <div className="bg-white py-8 px-6 sm:px-10 md:px-14 lg:px-20 rounded-lg shadow-lg w-full sm:w-4/5 md:w-3/5 lg:w-2/5 xl:w-1/3">
+        <h2 className="text-2xl font-bold text-black mb-4 text-center">{action}</h2>
+        <p className="text-center text-gray-500 mb-8">Please enter your details</p>
         <form>
           <div className="mb-4">
             <label className="block text-gray-700">Email</label>
@@ -39,11 +40,13 @@ const LoginModal = ({ isOpen, onClose }) => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <div className="text-right mt-2">
-              <a href="#" className="text-red-600 text-sm">Forgot password</a>
-            </div>
+            {action === "Sign In" && (
+              <div className="text-right mt-2">
+                <a href="#" className="text-red-600 text-sm">Forgot password</a>
+              </div>
+            )}
           </div>
-          <button type="submit" className="bg-red-600 text-white w-full py-2 rounded-lg mb-6">Sign In</button>
+          <button type="submit" className="bg-red-600 text-white w-full py-2 rounded-lg mb-6">{action}</button>
         </form>
         <div className="flex items-center mb-6">
           <div className="flex-grow border-t border-gray-300"></div>
@@ -58,11 +61,21 @@ const LoginModal = ({ isOpen, onClose }) => {
             <FaApple className="text-2xl" />
           </button>
         </div>
-        <p className="text-center text-gray-500">Don't have an account? <a href="#" className="text-red-600">Sign Up for free</a></p>
-        <button onClick={onClose} className="mt-4 text-gray-500 block mx-auto">Cancel</button>
+        <p className="text-center text-gray-500">
+          {action === "Sign In" ? "Don't" : "Already"} have an account? 
+          <button 
+            onClick={() => setAction(action === "Sign In" ? 'Sign Up' : 'Sign In')} 
+            className="text-red-600 ml-1">
+            {action === "Sign In" ? "Sign Up" : "Sign In"}
+          </button>
+        </p>
+        {/* <button onClick={onClose} className="mt-4 bg-white text-black border border-red-300 p-2 rounded-lg w-full mx-auto">Cancel</button> */}
+        <button className="absolute top-5 right-5 text-white text-2xl" onClick={onClose}>
+            &times;
+          </button>
       </div>
     </div>
   );
 };
 
-export default LoginModal;
+export default LoginSignupModal;

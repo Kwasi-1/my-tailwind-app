@@ -9,7 +9,7 @@ const services = [
   { title: 'Auto Mechanic', icon: require('../assets/game-icons_car-key.png') },
 ];
 
-const ServicesSection = () => {
+const ServicesHomeSection = () => {
   return (
     <section className="py-16 ">
       <div className="container mx-auto px-4">
@@ -30,4 +30,4 @@ const ServicesSection = () => {
   );
 };
 
-export default ServicesSection;
+export default ServicesHomeSection;

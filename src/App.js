@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from "./pages/Home";
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
-import Gallery from './pages/Gallery';
+import GalleryPage from './pages/GalleryPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Services from './pages/ServicesPage';
 
 function App() {
   return (
@@ -14,8 +15,8 @@ function App() {
         <Header/>
         <Routes>
           <Route exact path="/" element={<Home />} />
-          {/* <Route path="/about" element={<About />} /> */}
-          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/gallery" element={<GalleryPage />} />
         </Routes>
         <Footer/>
       </div>

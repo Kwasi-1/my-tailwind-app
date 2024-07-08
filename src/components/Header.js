@@ -1,6 +1,8 @@
+// src/components/Header.jsx
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import LoginModal from './LoginModal';
+import LoginSignupModal from './LoginSignupModal';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,12 +50,12 @@ const Header = () => {
         <ul className={`md:flex space-x-4 ${isOpen ? 'block' : 'hidden'} md:block`}>
           <li><Link to="/" className="block md:inline hover:underline py-2 md:py-0 active:text-red-800">Home</Link></li>
           <li><Link to="/services" className="block md:inline hover:underline py-2 md:py-0">Services</Link></li>
-          <li><Link to="/booking" className="block md:inline hover:underline py-2 md:py-0">Booking</Link></li>
+          <li><Link to="/about" className="block md:inline hover:underline py-2 md:py-0">About</Link></li>
           <li><Link to="/gallery" className="block md:inline hover:underline py-2 md:py-0">Gallery</Link></li>
-          <li><Link to="/contact" className="block md:inline hover:underline py-2 md:py-0">Contact</Link></li>
+          <li><Link to="/contact" className="block md:inline hover:underline py-2 md:py-0">Contact Us</Link></li>
         </ul>
         <button 
-          className="hidden md:block bg-red-600 px-6 py-3 text-lg font-semibold rounded"
+          className="hidden md:block bg-red-600 px-6 py-3 text-lg font-semibold rounded hover:bg-red-700 transition duration-300"
           onClick={handleLoginOpen}
         >
           Book A Schedule
@@ -61,13 +63,13 @@ const Header = () => {
       </nav>
       {isOpen && (
         <button 
-          className="block md:hidden bg-red-600 w-full px-6 py-3 mt-4 text-lg font-semibold rounded"
+          className="block md:hidden bg-red-600 w-full px-6 py-3 mt-4 text-lg font-semibold rounded hover:bg-red-700 transition duration-300"
           onClick={handleLoginOpen}
         >
           Book A Schedule
         </button>
       )}
-      <LoginModal isOpen={isLoginOpen} onClose={handleLoginClose} />
+      <LoginSignupModal isOpen={isLoginOpen} onClose={handleLoginClose} />
     </header>
   );
 };

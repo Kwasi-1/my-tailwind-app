@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import GalleryComponent from "./GalleryComponent";
 
 
@@ -11,7 +12,7 @@ const GallerySection = () => {
       </p>
       <GalleryComponent/>
       <div className="mt-8 text-right">
-        <a href="/gallery" className="text-red-600 hover:underline">View More</a>
+        <Link to="/gallery" className="text-red-600 hover:underline">View More</Link>
       </div>
     </div>
   );
